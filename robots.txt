@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sydneyfirewoodcompany.com.au/sitemap.xml
