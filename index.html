@@ -31,25 +31,6 @@
             padding: 0 20px;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            background-color: #d35400;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #a04000;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
         header {
             position: fixed;
             top: 0;
@@ -236,19 +217,6 @@
             margin-bottom: 15px;
         }
 
-        .about-image {
-            flex: 1;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -276,73 +244,29 @@
         }
 
         .contact {
-            padding: 100px 0;
+            padding: 30px 0;
             background-color: #1a4731;
             color: white;
         }
 
         .contact h2 {
             font-size: 2.5rem;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
-        .contact-content {
+        .contact table {
             display: flex;
-            gap: 40px;
             justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-info p {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-info p i {
-            margin-right: 10px;
-            color: #d35400;
-        }
-
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-group input,
-        .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 4px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
+            max-width: 600px;
+            margin: 0px auto;
+            border-collapse: collapse;
         }
 
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+        .contact table td {
+            vertical-align: top;
+            padding: 3px 15px;
         }
 
         footer {
@@ -356,35 +280,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .footer-logo {
-            height: 50px;
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: #d35400;
-            transform: translateY(-3px);
         }
 
         @media (max-width: 768px) {
@@ -457,10 +352,6 @@
             .about-content {
                 flex-direction: column;
             }
-
-            .contact-content {
-                flex-direction: column;
-            }
         }
     </style>
 </head>
@@ -526,13 +417,25 @@
 
     <section class="contact" id="contact">
         <div class="container">
-            <h2>Call us for a free quote! 0417 024 267</h2>
-            <div class="container text-center">
-                <p><strong>Name:</strong> Peter Saliba</p>
-                <p><strong>Mobile:</strong> 0417 024 267</p>
-                <p><strong>Location:</strong> Glenorie NSW 2157</p>
-                <p><strong>Areas Serviced:</strong> Sydney's North, Hills, North Shore & surrounds</p>
-            </div>
+            <h2>Call us for a free quote!</h2>
+            <table>
+                <tr>
+                    <td><strong>Name:</strong></td>
+                    <td>Peter Saliba</td>
+                </tr>
+                <tr>
+                    <td><strong>Mobile:</strong></td>
+                    <td>0417 024 267</td>
+                </tr>
+                <tr>
+                    <td><strong>Location:</strong></td>
+                    <td>Glenorie NSW 2157</td>
+                </tr>
+                <tr>
+                    <td><strong>Areas Serviced: </strong></td>
+                    <td>Sydney's North, Hills, North Shore & surrounds</td>
+                </tr>
+            </table>
         </div>
     </section>
 
@@ -576,15 +479,6 @@
                 header.classList.remove('menu-open');
             }
         });
-
-        const quoteForm = document.getElementById('quote-form');
-        if (quoteForm) {
-            quoteForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Thank you for your inquiry! We will contact you shortly.');
-                quoteForm.reset();
-            });
-        }
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
