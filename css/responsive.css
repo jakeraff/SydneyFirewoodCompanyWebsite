@@ -1,0 +1,46 @@
+@media (max-width: 768px) {
+    .header-content {
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    .company-name {
+        display: none;
+    }
+
+    .hero-logo {
+        max-width: 90%;
+    }
+
+    .header-content nav {
+        width: 100%;
+        order: 3;
+    }
+
+    .nav-links {
+        width: 100%;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+        padding: 0;
+    }
+
+    .nav-links.active {
+        max-height: 300px;
+        padding: var(--spacing-sm) 0 var(--spacing-lg) 0;
+    }
+
+    .nav-links li {
+        margin: var(--spacing-sm) 0;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+}

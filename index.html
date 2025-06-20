@@ -7,353 +7,8 @@
     <meta name="description" content="Sydney Firewood Company serves the Hills, North Shore & surrounding areas, bringing all your firewood products and accessories directly to your doorstep.">
     <title>Sydney Firewood Company</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
-            padding: 15px 0;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
-        }
-
-        header.scrolled,
-        header.menu-open {
-            padding: 10px 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            height: 40px;
-            transition: all 0.3s ease;
-            filter: brightness(0) invert(1);
-        }
-        
-        header.scrolled .logo,
-        header.menu-open .logo {
-            filter: none;
-        }
-        
-        .company-name {
-            margin-left: 15px;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: white;
-            transition: all 0.3s ease;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        }
-        
-        header.scrolled .company-name,
-        header.menu-open .company-name {
-            color: #333;
-            text-shadow: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: color 0.3s ease;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        }
-        
-        header.scrolled .nav-links a,
-        header.menu-open .nav-links a {
-            color: #333;
-            text-shadow: none;
-        }
-
-        .nav-links a:hover,
-        header.scrolled .nav-links a:hover,
-        header.menu-open .nav-links a:hover {
-            color: #d35400;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            color: white;
-            transition: all 0.3s ease;
-            font-size: 1.5rem;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        }
-        
-        header.scrolled .hamburger,
-        header.menu-open .hamburger {
-            color: #333;
-            text-shadow: none;
-        }
-
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(15, 42, 29, 0.85), rgba(15, 42, 29, 0.85)), url('images/FirewoodPic.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center; 
-            color: white;
-        }
-
-        .hero-content-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            gap: 40px;
-        }
-
-        .hero-text-content {
-            flex-shrink: 1;
-        }
-
-        .hero-flame-logo {
-            height: 300px;
-            width: auto;
-            object-fit: contain;
-            flex-shrink: 0;
-        }
-
-        .hero-main-heading {
-            font-size: 4.5rem; 
-            font-weight: 700; 
-            line-height: 1.1; 
-            margin-bottom: 25px; 
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); 
-            padding-bottom: 20px; 
-            border-bottom: 2px solid white; 
-            display: inline-block;
-        }
-
-        .hero-location {
-            font-size: 2.2rem; 
-            color: #d35400;
-            font-weight: 700; 
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-
-        .hero-phone {
-            font-size: 2rem; 
-            color: white;
-            font-weight: 700; 
-            margin-bottom: 0; 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-
-        .about {
-            padding: 100px 0;
-            background-color: #f9f9f9;
-        }
-
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .about-text {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #d35400;
-            text-align: center;
-        }
-
-        .about p {
-            margin-bottom: 15px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .gallery-item {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .contact {
-            padding: 30px 0;
-            background-color: #1a4731;
-            color: white;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .contact table {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            max-width: 600px;
-            margin: 0px auto;
-            border-collapse: collapse;
-        }
-
-        .contact table td {
-            vertical-align: top;
-            padding: 3px 15px;
-        }
-
-        footer {
-            background-color: #0f2a1d;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                position: relative;
-                flex-wrap: wrap;
-            }
-
-            .company-name {
-                display: none;
-            }
-
-            .header-content nav {
-                width: 100%;
-                order: 3;
-            }
-
-            .nav-links {
-                width: 100%;
-                flex-direction: column;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
-                padding: 0;
-            }
-
-            .nav-links.active {
-                max-height: 300px;
-                padding: 10px 0 20px 0;
-            }
-
-            .nav-links li {
-                margin: 10px 0;
-                text-align: center;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .hero-content-inner {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 30px;
-            }
-
-            .hero-text-content {
-                order: 1;
-            }
-
-            .hero-main-heading {
-                font-size: 3rem;
-                margin-bottom: 20px;
-                padding-bottom: 15px;
-            }
-            .hero-location {
-                font-size: 1.8rem;
-            }
-            .hero-phone {
-                font-size: 1.5rem;
-            }
-            
-            .hero-flame-logo {
-                order: 2;
-                height: 120px;
-                width: auto;
-            }
-
-            .about-content {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header id="header">
@@ -376,15 +31,9 @@
     </header>
 
     <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content-inner">
-                <div class="hero-text-content">
-                    <h1 class="hero-main-heading">SYDNEY<br>FIREWOOD<br>COMPANY</h1>
-                    <p class="hero-location">GLENORIE</p>
-                    <p class="hero-phone">0417 024 267</p>
-                </div>
-                <img src="images/Firewood Logo-Transparent.png" alt="Sydney Firewood Company Flame Logo" class="hero-flame-logo">
-            </div>
+        <div class="container" style="text-align: center;">
+            <img src="images/Firewood Logo.png" alt="Sydney Firewood Company Logo" class="hero-logo">
+            <a class="hero-phone" href="tel:+61417024267"><i class="fa fa-phone"></i> 0417 024 267</a>
         </div>
     </section>
 
@@ -397,7 +46,7 @@
                     <p>What started as a small, local operation has grown into a respected name known for quality, sustainability, and exceptional service. We strive for convenient delivery and the perfect wood for every need.</p>
                     <p>We acquire our firewood from naturally fallen trees, offering premium ironbark and yellow box firewood ideal for burning. Our wood produces high heat with little smoke, perfect for both heating and cooking.</p>
                     <p>Sydney Firewood Company serves the Hills, North Shore & surrounding areas, bringing all your firewood products and accessories directly to your doorstep.</p>
-                    <strong>Call us today for a free quote! 0417 024 267</strong>
+                    <a class="contact-link" href="#contact">Call us today for a free quote!</a>
                 </div>
             </div>
             
@@ -417,7 +66,7 @@
 
     <section class="contact" id="contact">
         <div class="container">
-            <h2>Call us for a free quote!</h2>
+            <h2>Call us today for a free quote!</h2>
             <table>
                 <tr>
                     <td><strong>Name:</strong></td>
@@ -425,7 +74,7 @@
                 </tr>
                 <tr>
                     <td><strong>Mobile:</strong></td>
-                    <td>0417 024 267</td>
+                    <td><a class="contact-phone" href="tel:+61417024267">0417 024 267</a></td>
                 </tr>
                 <tr>
                     <td><strong>Location:</strong></td>
@@ -445,89 +94,24 @@
         </div>
     </footer>
 
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const header = document.getElementById('header');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            header.classList.toggle('menu-open');
-        });
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                if (!header.classList.contains('menu-open')) {
-                    header.classList.remove('scrolled');
-                }
-            }
-        });
-        
-        window.addEventListener('load', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-            }
-            if (header.classList.contains('menu-open')) {
-                header.classList.remove('menu-open');
-            }
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        header.classList.remove('menu-open');
-                        
-                        if (window.scrollY > 50) {
-                            header.classList.add('scrolled');
-                        } else {
-                            header.classList.remove('scrolled');
-                        }
-                    }
-                    
-                    const headerHeight = header.offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+    <script src="js/main.js"></script>
+    
+    <script type="text/javascript">
+        var utag_data = {};
+        (function(a,b,c,d){
+            a='https://tags.tiqcdn.com/utag/marketingcenter/common/prod/utag.js';
+            b=document;
+            c='script';
+            d=b.createElement(c);
+            d.src=a;
+            d.type='text/java'+c;
+            d.async=true;
+            a=b.getElementsByTagName(c)[0];
+            a.parentNode.insertBefore(d,a);
+        })();
+    </script> 
+    <script type="text/javascript">
+        window.Parameters = window.Parameters || {ExternalUid: 'bq8bclbug7u9098t'}
     </script>
-    <div>
-        <script type="text/javascript">
-            var utag_data = {};
-            (function(a,b,c,d){
-                a='https://tags.tiqcdn.com/utag/marketingcenter/common/prod/utag.js';
-                b=document;
-                c='script';
-                d=b.createElement(c);
-                d.src=a;
-                d.type='text/java'+c;
-                d.async=true;
-                a=b.getElementsByTagName(c)[0];
-                a.parentNode.insertBefore(d,a);
-            })();
-        </script> 
-        <script type="text/javascript">
-            window.Parameters = window.Parameters || {ExternalUid: 'bq8bclbug7u9098t'}
-        </script>
-    </div>
 </body>
 </html>

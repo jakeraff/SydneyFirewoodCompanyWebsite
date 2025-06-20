@@ -1,0 +1,31 @@
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-logo {
+    display: block;
+    max-height: 300px;
+    margin: 0 auto;
+}
+
+.hero-phone {
+    color: var(--text-color);
+    text-decoration: none;   
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-top: var(--spacing-xxl);
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    text-align: center;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    transition: all var(--transition-speed) ease;
+}
+
+.hero-phone:hover {
+    color: var(--primary-color);
+}
